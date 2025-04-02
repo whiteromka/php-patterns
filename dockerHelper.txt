@@ -1,0 +1,5 @@
+Провалиться внутрь контейнера
+[winpty] docker exec -it php-patterns /bin/bash
+
+Чекнуть контейнер
+./check-container.sh
