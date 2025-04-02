@@ -2,12 +2,14 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use App\Generative\Behaviour\ActivityStrategy\Coding;
-use App\Generative\Behaviour\ActivityStrategy\Developer;
-use App\Generative\Behaviour\ActivityStrategy\Sleeping;
-use App\Generative\Behaviour\PaymentStrategy\CryptoPayment;
-use App\Generative\Behaviour\PaymentStrategy\PaymentService;
+use App\Behaviour\ActivityStrategy\Coding;
+use App\Behaviour\ActivityStrategy\Developer;
+use App\Behaviour\ActivityStrategy\Sleeping;
+use App\Behaviour\PaymentStrategy\CryptoPayment;
+use App\Behaviour\PaymentStrategy\PaymentService;
 use App\Generative\Singleton\Singleton;
+use App\Structure\PizzaDecorator\BasePizza;
+use App\Structure\PizzaDecorator\PepperoniDecorator;
 
 // Singleton
 //$singleton = Singleton::getInstance();
@@ -19,11 +21,17 @@ use App\Generative\Singleton\Singleton;
 //$paymentService->makePay(123);
 
 // Strategy developer activity
-$developer = new Developer();
-$developer->setActivity(new Sleeping());
-$developer->make();
-$developer->setActivity(new Coding());
-$developer->make();
+//$developer = new Developer();
+//$developer->setActivity(new Sleeping());
+//$developer->make();
+//$developer->setActivity(new Coding());
+//$developer->make();
+
+// Decorator pizza
+//$pizza = new BasePizza();
+//$pepperoniPizza = new PepperoniDecorator($pizza);
+//echo $pepperoniPizza->getCost();
+//echo $pepperoniPizza->getIngridients();
 
 
 
