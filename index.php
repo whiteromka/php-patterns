@@ -7,6 +7,7 @@ use App\Behaviour\ActivityStrategy\Developer;
 use App\Behaviour\ActivityStrategy\Sleeping;
 use App\Behaviour\PaymentStrategy\CryptoPayment;
 use App\Behaviour\PaymentStrategy\PaymentService;
+use App\Generative\FactoryDocument\DocumentFactory;
 use App\Generative\FactoryMethodBlacksmith\ForgeService;
 use App\Generative\FactoryMethodBlacksmith\JapanBlacksmith;
 use App\Generative\Singleton\Singleton;
@@ -36,8 +37,11 @@ use App\Structure\PizzaDecorator\PepperoniDecorator;
 //echo $pepperoniPizza->getIngridients();
 
 // Factory method Blacksmith
-$blacksmith = new JapanBlacksmith();
-$forge = new ForgeService($blacksmith);
-$sword = $forge->makeSword();
-$sword->makeDamage();
+//$blacksmith = new JapanBlacksmith();
+//$forge = new ForgeService($blacksmith);
+//$sword = $forge->makeSword();
+//$sword->makeDamage();
 
+// Factory documents
+$pdf = DocumentFactory::createDocument('pdf');
+$pdf->showText();
