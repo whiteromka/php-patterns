@@ -7,6 +7,8 @@ use App\Behaviour\ActivityStrategy\Developer;
 use App\Behaviour\ActivityStrategy\Sleeping;
 use App\Behaviour\PaymentStrategy\CryptoPayment;
 use App\Behaviour\PaymentStrategy\PaymentService;
+use App\Generative\FactoryMethodBlacksmith\ForgeService;
+use App\Generative\FactoryMethodBlacksmith\JapanBlacksmith;
 use App\Generative\Singleton\Singleton;
 use App\Structure\PizzaDecorator\BasePizza;
 use App\Structure\PizzaDecorator\PepperoniDecorator;
@@ -33,5 +35,9 @@ use App\Structure\PizzaDecorator\PepperoniDecorator;
 //echo $pepperoniPizza->getCost();
 //echo $pepperoniPizza->getIngridients();
 
-
+// Factory method Blacksmith
+$blacksmith = new JapanBlacksmith();
+$forge = new ForgeService($blacksmith);
+$sword = $forge->makeSword();
+$sword->makeDamage();
 
