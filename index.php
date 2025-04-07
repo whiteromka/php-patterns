@@ -13,6 +13,10 @@ use App\Generative\FactoryMethodBlacksmith\JapanBlacksmith;
 use App\Generative\Singleton\Singleton;
 use App\Structure\PizzaDecorator\BasePizza;
 use App\Structure\PizzaDecorator\PepperoniDecorator;
+use App\Structure\WarriorBridge\Footman;
+use App\Structure\WarriorBridge\Horseman;
+use App\Structure\WarriorBridge\Pike;
+use App\Structure\WarriorBridge\Sword;
 
 // Singleton
 //$singleton = Singleton::getInstance();
@@ -43,5 +47,12 @@ use App\Structure\PizzaDecorator\PepperoniDecorator;
 //$sword->makeDamage();
 
 // Factory documents
-$pdf = DocumentFactory::createDocument('pdf');
-$pdf->showText();
+//$pdf = DocumentFactory::createDocument('pdf');
+//$pdf->showText();
+
+// Warrior Bridge
+$horseman = new Horseman((new Pike()));
+$footman = new Footman((new Sword()));
+
+$horseman->fight();
+$footman->fight();
