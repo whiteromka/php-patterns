@@ -11,6 +11,9 @@ use App\Generative\FactoryDocument\DocumentFactory;
 use App\Generative\FactoryMethodBlacksmith\ForgeService;
 use App\Generative\FactoryMethodBlacksmith\JapanBlacksmith;
 use App\Generative\Singleton\Singleton;
+use App\LiveCoding\Generators\BigFileReader;
+use App\LiveCoding\Generators\BigFileReaderAdvancedGenerator;
+use App\LiveCoding\Generators\BigFileReaderGenerator;
 use App\Structure\PizzaDecorator\BasePizza;
 use App\Structure\PizzaDecorator\PepperoniDecorator;
 use App\Structure\WarriorBridge\Footman;
@@ -51,8 +54,33 @@ use App\Structure\WarriorBridge\Sword;
 //$pdf->showText();
 
 // Warrior Bridge
-$horseman = new Horseman((new Pike()));
-$footman = new Footman((new Sword()));
+//$horseman = new Horseman((new Pike()));
+//$footman = new Footman((new Sword()));
+//
+//$horseman->fight();
+//$footman->fight();
 
-$horseman->fight();
-$footman->fight();
+// BigFileReaderGenerator
+$startMemory = memory_get_usage();
+$file = './example_500kb.csv';
+
+// Чанки не помогают ни как(
+//$reader = new BigFileReaderAdvancedGenerator();
+//$generator = $reader->readBigFile($file);
+//foreach ($generator as $line) {
+//    echo $line . "/n";
+//}
+
+// простой генератор самый эффективный (file_exists, fopen, while >>> fgets fclose)
+//$reader = new BigFileReaderGenerator();
+//$generator = $reader->readBigFile($file);
+//foreach ($generator as $line) {
+//    echo $line . "/n";
+//}
+
+$reader = new BigFileReader();
+$reader->readBigFile($file);
+
+echo "\n";
+echo 'Память использовано: ' . (memory_get_usage() - $startMemory) . ' байт' . "\n";
+echo 'Пиковое значение: ' . memory_get_peak_usage() . ' байт'  . "\n";

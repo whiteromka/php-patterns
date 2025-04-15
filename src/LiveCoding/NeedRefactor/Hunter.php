@@ -20,8 +20,6 @@ class Hunter
     {
         $this->gun->reload();
     }
-
-
 }
 
 interface IGun
@@ -42,9 +40,9 @@ class Gun implements IGun
 
     public function shoot(): void
     {
-        while ($this->maxCapacityBullet > 0) {
+        while ($this->bullet > 0) {
             echo "Выстрел " . PHP_EOL;
-            $this->maxCapacityBullet--;
+            $this->bullet--;
         }
     }
 }
