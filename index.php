@@ -14,6 +14,7 @@ use App\Generative\Singleton\Singleton;
 use App\LiveCoding\Generators\BigFileReader;
 use App\LiveCoding\Generators\BigFileReaderAdvancedGenerator;
 use App\LiveCoding\Generators\BigFileReaderGenerator;
+use App\LiveCoding\Others\SimpleRecursion;
 use App\Structure\PizzaDecorator\BasePizza;
 use App\Structure\PizzaDecorator\PepperoniDecorator;
 use App\Structure\WarriorBridge\Footman;
@@ -61,8 +62,8 @@ use App\Structure\WarriorBridge\Sword;
 //$footman->fight();
 
 // BigFileReaderGenerator
-$startMemory = memory_get_usage();
-$file = './example_500kb.csv';
+//$startMemory = memory_get_usage();
+//$file = './example_500kb.csv';
 
 // Чанки не помогают ни как(
 //$reader = new BigFileReaderAdvancedGenerator();
@@ -78,9 +79,18 @@ $file = './example_500kb.csv';
 //    echo $line . "/n";
 //}
 
-$reader = new BigFileReader();
-$reader->readBigFile($file);
+//$reader = new BigFileReader();
+//$reader->readBigFile($file);
+//
+//echo "\n";
+//echo 'Память использовано: ' . (memory_get_usage() - $startMemory) . ' байт' . "\n";
+//echo 'Пиковое значение: ' . memory_get_peak_usage() . ' байт'  . "\n";
 
-echo "\n";
-echo 'Память использовано: ' . (memory_get_usage() - $startMemory) . ' байт' . "\n";
-echo 'Пиковое значение: ' . memory_get_peak_usage() . ' байт'  . "\n";
+$simpleRecursion = new SimpleRecursion();
+//$res = $simpleRecursion->recursiveSum(4);
+//echo ' = ' . $res;
+
+$res = $simpleRecursion->recursiveSum_(1, 4);
+echo ' = ' . $res;
+
+
