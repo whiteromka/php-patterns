@@ -86,11 +86,11 @@ use App\Structure\WarriorBridge\Sword;
 //echo 'Память использовано: ' . (memory_get_usage() - $startMemory) . ' байт' . "\n";
 //echo 'Пиковое значение: ' . memory_get_peak_usage() . ' байт'  . "\n";
 
-$simpleRecursion = new SimpleRecursion();
+//$simpleRecursion = new SimpleRecursion();
 //$res = $simpleRecursion->recursiveSum(4);
 //echo ' = ' . $res;
 
-$res = $simpleRecursion->recursiveSum_(1, 4);
-echo ' = ' . $res;
+//$res = $simpleRecursion->recursiveSum_(1, 4);
+//echo ' = ' . $res;
 
 
